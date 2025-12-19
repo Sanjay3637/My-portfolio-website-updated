@@ -55,34 +55,37 @@ const Skills = () => {
                     <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
                         Skills & <span className="gradient-text">Tech Stack</span>
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
                         Technologies and tools I work with to build amazing software
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
                     {skillCategories.map((category, index) => (
                         <motion.div
                             key={index}
                             variants={staggerItem}
-                            whileHover={{ scale: 1.05, y: -10 }}
-                            className="card group"
+                            whileHover={{ y: -5 }}
+                            className="group relative h-full"
                         >
-                            <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                                <category.icon className="w-6 h-6 text-white" />
-                            </div>
-                            <h3 className="text-xl font-semibold mb-4 text-gray-100">
-                                {category.title}
-                            </h3>
-                            <div className="flex flex-wrap gap-2">
-                                {category.skills.map((skill, skillIndex) => (
-                                    <span
-                                        key={skillIndex}
-                                        className="px-3 py-1 text-sm bg-primary-500/10 text-primary-400 rounded-full border border-primary-500/20"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="glass-dark p-8 rounded-2xl h-full border border-white/10 relative hover:border-white/20 transition-colors duration-300">
+                                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                                    <category.icon className="w-7 h-7 text-white" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-6 text-gray-100 tracking-tight">
+                                    {category.title}
+                                </h3>
+                                <div className="flex flex-wrap gap-3">
+                                    {category.skills.map((skill, skillIndex) => (
+                                        <span
+                                            key={skillIndex}
+                                            className="px-3 py-1.5 text-sm bg-white/5 text-gray-300 rounded-lg border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </motion.div>
                     ))}

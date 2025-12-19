@@ -15,7 +15,7 @@ const Education = () => {
             institution: 'Sri Shakthi Institute of Engineering and Technology',
             university: 'Anna University',
             period: '2022 – 2026',
-            cgpa: '7.59',
+            cgpa: '7.59*',
             type: 'Undergraduate'
         },
         {

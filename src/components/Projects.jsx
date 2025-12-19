@@ -76,84 +76,85 @@ const Projects = () => {
                     <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
                         Featured <span className="gradient-text">Projects</span>
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
                         A selection of projects showcasing my skills and passion for development
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
                             variants={staggerItem}
-                            whileHover={{ y: -10 }}
-                            className="group card overflow-hidden"
+                            whileHover={{ y: -8 }}
+                            className="group relative"
                         >
-                            {/* Project Image */}
-                            <div className={`relative h-48 bg-gradient-to-br ${project.color} rounded-lg mb-6 overflow-hidden`}>
-                                {/* Placeholder (visible if image fails) */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <Folder className="w-16 h-16 text-primary-500/30" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-purple-500/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="glass-dark rounded-2xl overflow-hidden border border-white/10 relative hover:border-white/20 transition-all duration-300 h-full flex flex-col">
+                                {/* Project Image */}
+                                <div className={`relative h-56 bg-gradient-to-br ${project.color} overflow-hidden`}>
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <Folder className="w-16 h-16 text-primary-500/30" />
+                                    </div>
+
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        onError={(e) => e.target.style.display = 'none'}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                                 </div>
 
-                                {/* Image */}
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                    onError={(e) => e.target.style.display = 'none'}
-                                />
-
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </div>
-
-                            {/* Project Info */}
-                            <div className="space-y-4">
-                                <div>
-                                    <div className="flex items-start justify-between mb-2">
-                                        <h3 className="text-2xl font-bold text-gray-100 group-hover:text-primary-500 transition-colors">
-                                            {project.title}
-                                        </h3>
-                                        <a
-                                            href={project.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="p-2 glass rounded-lg hover:bg-primary-500/20 transition-colors"
-                                            aria-label="View on GitHub"
-                                        >
-                                            <Github className="w-5 h-5 text-primary-500" />
-                                        </a>
-                                        {project.github2 && (
+                                {/* Project Info */}
+                                <div className="p-8 flex-grow flex flex-col">
+                                    <div className="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-gray-100 group-hover:text-primary-400 transition-colors tracking-tight">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-primary-500/90 font-medium text-sm mt-1">{project.subtitle}</p>
+                                        </div>
+                                        <div className="flex gap-2">
                                             <a
-                                                href={project.github2}
+                                                href={project.github}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="p-2 glass rounded-lg hover:bg-primary-500/20 transition-colors"
-                                                aria-label="View on GitHub"
+                                                className="p-2.5 glass rounded-xl hover:bg-primary-500 text-primary-400 hover:text-white transition-all duration-300"
+                                                title="View on GitHub"
                                             >
-                                                <Github className="w-5 h-5 text-primary-500" />
+                                                <Github className="w-5 h-5" />
                                             </a>
-                                        )}
-
+                                            {project.github2 && (
+                                                <a
+                                                    href={project.github2}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="p-2.5 glass rounded-xl hover:bg-primary-500 text-primary-400 hover:text-white transition-all duration-300"
+                                                    title="View Alternative Repo"
+                                                >
+                                                    <Github className="w-5 h-5" />
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
-                                    <p className="text-sm text-primary-400 mb-2">{project.subtitle}</p>
-                                    <p className="text-sm text-gray-500 mb-3">{project.date}</p>
-                                </div>
 
-                                <p className="text-gray-400 leading-relaxed">
-                                    {project.description}
-                                </p>
+                                    <p className="text-gray-500 text-xs font-medium mb-4 uppercase tracking-widest">{project.date}</p>
 
-                                <div className="flex flex-wrap gap-2">
-                                    {project.tech.map((tech, techIndex) => (
-                                        <span
-                                            key={techIndex}
-                                            className="px-3 py-1 text-xs bg-primary-500/10 text-primary-400 rounded-full border border-primary-500/20"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
+                                    <p className="text-gray-400 leading-relaxed mb-6 flex-grow">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="flex flex-wrap gap-2 mt-auto">
+                                        {project.tech.map((tech, techIndex) => (
+                                            <span
+                                                key={techIndex}
+                                                className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-white/5 text-gray-400 rounded-md border border-white/5 group-hover:border-primary-500/30 group-hover:text-primary-400 transition-colors duration-300"
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
