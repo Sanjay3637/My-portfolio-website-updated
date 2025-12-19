@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { User } from 'lucide-react';
+import { User, Download } from 'lucide-react';
 import { staggerContainer, staggerItem } from '../utils/animations';
 
 const About = () => {
@@ -63,6 +63,19 @@ const About = () => {
                         <p className="text-lg text-gray-300 leading-relaxed">
                             From AI-powered systems to full-stack applications, I enjoy working across the entire development spectrum to create innovative solutions.
                         </p>
+
+                        <div className="pt-4">
+                            <motion.a
+                                href="/SANJAY R - 714022104130.pdf"
+                                download="Sanjay_Resume.pdf"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg shadow-primary-500/20 transition-all"
+                            >
+                                <Download className="w-5 h-5" />
+                                Download Resume
+                            </motion.a>
+                        </div>
                     </motion.div>
                 </div>
 
