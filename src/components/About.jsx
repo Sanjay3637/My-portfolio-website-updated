@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
 import { staggerContainer, staggerItem } from '../utils/animations';
 

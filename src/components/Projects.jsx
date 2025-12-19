@@ -1,7 +1,11 @@
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { Folder, Github, ExternalLink } from 'lucide-react';
 import { staggerContainer, staggerItem } from '../utils/animations';
+import project1 from '../assets/project1.jpg';
+import project2 from '../assets/project2.jpg';
+import project3 from '../assets/project3.jpg';
+import project4 from '../assets/project4.jpg';
 
 const Projects = () => {
     const [ref, inView] = useInView({
@@ -17,7 +21,7 @@ const Projects = () => {
             tech: ['MERN Stack', 'TensorFlow.js', 'JWT', 'AI/ML'],
             date: 'Jun 2025',
             github: 'https://github.com/Sanjay3637/Smart-Moniter-AI',
-            image: '/src/assets/project1.jpg',
+            image: project1,
             color: 'from-purple-500/20 to-pink-500/20'
         },
         {
@@ -27,7 +31,7 @@ const Projects = () => {
             tech: ['Java', 'MySQL', 'JDBC', 'XAMPP'],
             date: 'Jan 2025',
             github: 'https://github.com/Sanjay3637/Java-ATM-Console-App',
-            image: './src/assets/project2.jpg',
+            image: project2,
             color: 'from-blue-500/20 to-cyan-500/20'
         },
         {
@@ -38,7 +42,7 @@ const Projects = () => {
             date: 'Aug 2023 – Dec 2023',
             github: 'https://github.com/Sanjay3637/Controller-HILL-CLIMB',
             github2: 'https://github.com/Sanjay3637/Controller-SUBWAY-SURFS',
-            image: '/src/assets/project3.jpg',
+            image: project3,
             color: 'from-green-500/20 to-emerald-500/20'
         },
         {
@@ -48,7 +52,7 @@ const Projects = () => {
             tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
             date: 'Mar 2023 – Jul 2023',
             github: 'https://github.com/Sanjay3637/Super-Car-Website',
-            image: '/src/assets/project4.jpg',
+            image: project4,
             color: 'from-orange-500/20 to-red-500/20'
         },
     ];
