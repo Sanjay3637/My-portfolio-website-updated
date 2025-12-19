@@ -18,7 +18,7 @@ const Achievements = () => {
         },
         {
             icon: Trophy,
-            title: '260+ LeetCode Problems',
+            title: '270+ LeetCode Problems',
             description: 'Consistently solving algorithmic challenges and improving problem-solving skills',
             color: 'from-blue-500 to-cyan-500'
         },
